@@ -1,0 +1,55 @@
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 2em 5em;
+  text-transform: uppercase;
+  height: fit-content;
+
+  ul {
+    display: flex;
+    padding: 0;
+    gap: 4em;
+  }
+
+  a:focus-visible {
+    outline: none;
+    padding: .2em;
+    transform: scale(1.08);
+    border-radius: 5px;
+    box-shadow: 0 0 3px 3px black;
+  }
+
+  &>a {
+    margin: 0 5em;
+
+    &:focus-visible {
+      padding: .5em 0 .5em .5em;
+    }
+  }
+
+  .link-hover-underline-animation {
+    display: block;
+    position: relative;
+    color: inherit;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: black;
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform 0.3s ease-out;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+}
