@@ -6,10 +6,12 @@ function App() {
   return (
     <>
       {/* <HeaderSimple /> */}
-      <Dropdown
-        defaultValue='Select'
-        optionList={["lorem", "ipsum", "carpe", "y"]}
-      />
+      <div className=''>
+        <Dropdown
+          defaultValue='Select'
+          optionList={["Goods and beverage", "ipsum zrgerg", "adaptable", "y"]}
+        />
+      </div>
     </>
   )
 }

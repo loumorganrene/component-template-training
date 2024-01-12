@@ -22,7 +22,7 @@ html {
 *, *:before, *:after {
   -webkit-box-sizing: inherit;
   -moz-box-sizing: inherit;
-  box-sizing: inherit;
+  box-sizing: content-box;
   }
 
 a {

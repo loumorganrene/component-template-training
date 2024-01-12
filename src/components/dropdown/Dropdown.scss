@@ -1,47 +1,76 @@
 .dropdown,
 .dropdown__list {
-    display: block;
     padding: .7rem .8rem;
     width: 100%;
-    margin: 0 auto;
     background: white;
     border: 0;
-    text-align: left;
     font-size: 1rem;
     color: black;
 }
 
 .dropdown {
-    display:flex;
+    display: flex;
     justify-content: space-between;
+    text-align: left;
     align-items: center;
-    position: relative;
 
-    &::before {
-        content: "&#709;"
-        
+    &::after {
+        content: "\f078";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+    }
+
+    &:focus-visible {
+        outline: 0;
+        box-shadow: 0 0 5px 2px rgba(251, 146, 60, 0.7) inset;
     }
 }
 
 .dropdown__list {
-    position: absolute;
-    inset: 0 0 4rem 0;
+    padding: 0;
+    width: calc(100% + 1.5rem);
     max-height: 10rem;
     overflow-y: auto;
     list-style-type: none;
-    padding: 0;
     margin-top: .1rem;
     opacity: 0;
-    z-index: 2;
     pointer-events: none;
+    transform: scale(1, 0);
+    transform-origin: top left;
+    transition: all .3s ease-in;
 
     &.active {
         opacity: 1;
         pointer-events: auto;
+        transform: scale(1, 1);
     }
 }
 
 .dropdown__option {
-    padding: .6rem 5rem;
+    padding: .6rem .8rem;
+    font-size: inherit;
     border-top: 1px solid black;
+    cursor: pointer;
+    transition: all .3s ease-in;
+
+    &::before {
+        font-family: "Font Awesome 5 Free";
+        content: "\f00c";
+        font-weight: 900;
+        opacity: 0;
+        transition: opacity .300s ease-out;
+    }
+
+    &:hover,
+    &.current {
+        background: #e6e6e6;
+    }
+
+    &.active {
+        box-shadow: 0 0 0 2px rgba(251, 146, 60, 0.7);
+    }
+
+    &.active::before {
+        opacity: 1;
+    }
 }
